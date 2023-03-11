@@ -1,0 +1,7 @@
+spring:
+  application:
+    appName: findyou
+    name: privilege.openbuss.com
+  data:
+    mongodb:
+      uri: mongodb://test:3OEeZTO1pnvECDvRhxIuFjdp@10.130.84.24:10004,10.130.84.32:10004,10.130.84.23:10004,10.130.84.123:10010/privilege

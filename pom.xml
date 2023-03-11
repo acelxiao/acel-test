@@ -16,6 +16,7 @@
   <modules>
     <module>h2</module>
       <module>common-test</module>
+      <module>mongo</module>
   </modules>
 
   <name>acel-test</name>
@@ -53,6 +54,19 @@
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>1.2.83</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+      <version>1.18.12</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>20.0</version>
     </dependency>
   </dependencies>
 

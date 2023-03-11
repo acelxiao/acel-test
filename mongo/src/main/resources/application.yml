@@ -1,0 +1,8 @@
+spring:
+  application:
+    appName: findyou
+    name: privilege.openbuss.com
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/acel_test
+#      uri: mongodb://test:3OEeZTO1pnvECDvRhxIuFjdp@dds-uf6e8c7d473a05341.mongodb.rds.aliyuncs.com:3717,dds-uf6e8c7d473a05342.mongodb.rds.aliyuncs.com:3717/relation?replicaSet=mgset-62222817&readPreference=secondaryPreferred&minPoolSize=10&maxPoolSize=200&connectTimeoutMS=2000&socketTimeoutMS=2000&maxIdleTimeMS=43200000
