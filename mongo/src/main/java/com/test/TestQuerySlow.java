@@ -27,10 +27,10 @@ public class TestQuerySlow {
     @RequestMapping("/test")
     @ResponseBody
     public String test() {
-        for (long i = 1 ; i <2; i++){
+        for (long i = 4000000 ; i <4005000; i++){
             UserIntimacy userIntimacy = new UserIntimacy();
             userIntimacy.setId(i+"");
-            userIntimacy.setUid(i);
+            userIntimacy.setUid(1234567L);
             userIntimacy.setTargetUid(i);
             userIntimacy.setTargetUidAlias("findyou");
             userIntimacy.setIntimacy(999L);
@@ -42,9 +42,9 @@ public class TestQuerySlow {
 
     @RequestMapping("/queryIntimacyForLargeData")
     @ResponseBody
-    public List<Long> queryIntimacyForLargeData(long minIntimacy, int limit) {
+    public List<Long> queryIntimacyForLargeData(long minIntimacy, int limit, long uid) {
         BasicDBList andCondition = new BasicDBList();
-//        andCondition.add(new BasicDBObject("uid", new BasicDBObject("$eq", uid)));
+        andCondition.add(new BasicDBObject("uid", new BasicDBObject("$eq", uid)));
         andCondition.add(new BasicDBObject("intimacy", new BasicDBObject("$gte", minIntimacy)));
         andCondition.add(new BasicDBObject("targetUidAlias", new BasicDBObject("$in", Lists.newArrayList("findyou","aiqianshou"))));
 
