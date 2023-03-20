@@ -1,4 +1,4 @@
-package com.acel;
+package com.acel.notspring;
 
 /**
  * Hello world!
