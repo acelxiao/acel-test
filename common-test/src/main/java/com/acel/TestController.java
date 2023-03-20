@@ -17,7 +17,7 @@ import java.util.Base64;
 public class TestController {
 
     @Autowired
-    private HelloService helloService;
+    private Hello hello;
 
 
     private static final GroovyClassLoader groovy;
@@ -31,7 +31,7 @@ public class TestController {
     @RequestMapping("/test")
     @ResponseBody
     public String test() {
-        return helloService.test();
+        return hello.test();
     }
 
     @RequestMapping("/test2")
@@ -56,7 +56,9 @@ public class TestController {
         // 将 bean 移交给 Spring 去管理
         ConfigurableApplicationContext appCtx =
                 (ConfigurableApplicationContext)SpringContextUtil.getApplicationContext();
-        ((BeanDefinitionRegistry)appCtx.getBeanFactory()).registerBeanDefinition(beanName, rawBeanDefinition);
+        BeanDefinitionRegistry beanDefinitionRegistry = ((BeanDefinitionRegistry)appCtx.getBeanFactory());
+        beanDefinitionRegistry.removeBeanDefinition("helloService");
+        beanDefinitionRegistry.registerBeanDefinition("helloService", rawBeanDefinition);
     }
 
 }
