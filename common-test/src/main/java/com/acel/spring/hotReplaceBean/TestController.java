@@ -18,7 +18,7 @@ import java.util.Base64;
 public class TestController {
 
     @Autowired
-    private HelloService helloService;
+    private My helloService;
 
 
 
@@ -34,7 +34,7 @@ public class TestController {
     @RequestMapping("/add")
     @ResponseBody
     public String add(String code) throws Exception{
-        String base64JavaCode = "cGFja2FnZSBjb20uYWNlbDsKCmltcG9ydCBvcmcuc3ByaW5nZnJhbWV3b3JrLnN0ZXJlb3R5cGUuU2VydmljZTsKCkBTZXJ2aWNlCnB1YmxpYyBjbGFzcyBIZWxsb1NlcnZpY2UgaW1wbGVtZW50cyBNeSB7CiAgICBAT3ZlcnJpZGUKICAgIHB1YmxpYyBTdHJpbmcgdGVzdCgpewogICAgICAgIHJldHVybiAiTkVXIjsKICAgIH0KfQo=";
+        String base64JavaCode = "cGFja2FnZSBjb20uYWNlbC5zcHJpbmcuaG90UmVwbGFjZUJlYW47CgppbXBvcnQgb3JnLnNwcmluZ2ZyYW1ld29yay5iZWFucy5mYWN0b3J5LmFubm90YXRpb24uQXV0b3dpcmVkOwppbXBvcnQgb3JnLnNwcmluZ2ZyYW1ld29yay5zdGVyZW90eXBlLlNlcnZpY2U7CgpAU2VydmljZQpwdWJsaWMgY2xhc3MgSGVsbG9TZXJ2aWNlIGltcGxlbWVudHMgTXkgewoKICAgIEBBdXRvd2lyZWQKICAgIHByaXZhdGUgSW5uZXJTZXJ2aWNlIGlubmVyU2VydmljZTsKCiAgICBAT3ZlcnJpZGUKICAgIHB1YmxpYyBTdHJpbmcgdGVzdCgpewogICAgICAgIFN5c3RlbS5vdXQucHJpbnRsbihpbm5lclNlcnZpY2UudGVzdCgpKTsKICAgICAgICByZXR1cm4gIm5ldyI7CiAgICB9Cn0K";
         String javaCode = new String(Base64.getDecoder().decode(base64JavaCode), "UTF-8");
         Class<?> clz = DynamicClassLoader.load(javaCode);
         generateSpringBean("helloService", clz);
