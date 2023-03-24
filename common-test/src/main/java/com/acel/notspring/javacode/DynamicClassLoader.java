@@ -51,11 +51,11 @@ public class DynamicClassLoader extends URLClassLoader {
 
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
-        byte[] newClassData = classBytes.get(name);
-        if (newClassData == null){
+//        byte[] newClassData = classBytes.get(name);
+//        if (newClassData == null){
             return super.loadClass(name);
-        }
-        return myloadClass(newClassData, name);
+//        }
+//        return myloadClass(newClassData, name);
 
     }
 
