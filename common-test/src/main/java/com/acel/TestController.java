@@ -17,7 +17,7 @@ import java.util.Base64;
 public class TestController {
 
     @Autowired
-    private Hello hello;
+    private HelloService helloService;
 
 
     private static final GroovyClassLoader groovy;
@@ -31,14 +31,10 @@ public class TestController {
     @RequestMapping("/test")
     @ResponseBody
     public String test() {
-        return hello.test();
+        return helloService.test();
     }
 
-    @RequestMapping("/test2")
-    @ResponseBody
-    public String test2() {
-        return ((Hello)SpringContextUtil.getBean("testBean")).test();
-    }
+
 
     @RequestMapping("/add")
     @ResponseBody
