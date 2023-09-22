@@ -39,7 +39,7 @@ public class Embedding {
         Unirest.setTimeouts(0, 0);
         HttpResponse<String> response = Unirest.post("https://api.openai.com/v1/embeddings")
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer sk-a02tEqi3qJNbqAmzwsEvjT3BlbkFJPtlfGxy4Tnwxs816tPoq")
                 .body("{\n    \"input\": \"" + text + "\",\n    \"model\": \"text-embedding-ada-002\"\n  }")
                 .asString();
 
@@ -59,7 +59,7 @@ public class Embedding {
         HttpResponse<String> response = Unirest.post("https://test2-bbfa7aa.svc.gcp-starter.pinecone.io/vectors/upsert")
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
-                .header("Api-Key", "0d76805b-ee67-45c5-b8d3-b31a07821c3f")
+                .header("Api-Key", "a0d76805b-ee67-45c5-b8d3-b31a07821c3f")
                 .body("{\"vectors\":[{\"metadata\":{\"origin_text\":\"" + text+"\"},\"id\":\" " + id +" \",\"values\":" +jsonArray.toJSONString()+"}]}")
                 .asString();
 
@@ -70,7 +70,7 @@ public class Embedding {
         HttpResponse<String> response = Unirest.post("https://test2-bbfa7aa.svc.gcp-starter.pinecone.io/query")
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
-                .header("Api-Key", "0d76805b-ee67-45c5-b8d3-b31a07821c3f")
+                .header("Api-Key", "a0d76805b-ee67-45c5-b8d3-b31a07821c3f")
                 .body("{\"includeValues\":false,\"includeMetadata\":true,\"topK\":3,\"vector\":" +jsonArray.toJSONString()+"}")
                 .asString();
         System.out.println(response.getBody());
